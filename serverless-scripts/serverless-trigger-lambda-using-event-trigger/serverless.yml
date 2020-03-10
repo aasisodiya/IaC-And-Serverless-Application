@@ -1,0 +1,12 @@
+# Author: Akash Sisodiya
+service: lambda-event-trigger
+provider:
+  name: aws
+  runtime: nodejs10.x
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - s3: some-randomly-created-bucket-which-doesnt-need-to-exists
+
+# Refer for more options: https://serverless.com/framework/docs/providers/aws/events/s3/
