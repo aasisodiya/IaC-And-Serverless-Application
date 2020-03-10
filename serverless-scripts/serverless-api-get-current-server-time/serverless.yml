@@ -1,0 +1,12 @@
+# Author : Akash Sisodiya
+service: api-get-current-time
+provider:
+  name: aws
+  runtime: nodejs10.x
+functions:
+  hello:
+    handler: handler.serverTime
+    events:
+      - http:
+          path: time
+          method: get
