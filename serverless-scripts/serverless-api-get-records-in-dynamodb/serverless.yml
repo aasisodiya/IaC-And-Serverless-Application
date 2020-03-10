@@ -1,0 +1,40 @@
+service: api-get-records-in-dynamodb
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-1
+  environment:
+    tableName: testtable
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:GetItem
+        - dynamodb:UpdateItem
+        - dynamodb:Query
+      Resource: "arn:aws:dynamodb:${opt:region, self:provider.region}:*:table/${self:provider.environment.tableName}"
+
+functions:
+  getData:
+    handler: handler.getData
+    events:
+      - http:
+          path: getdbdata/{testid}
+          method: get
+# you can add CloudFormation resource templates here
+resources:
+  Resources:
+    MyDynamoDBTable:
+      Type: "AWS::DynamoDB::Table"
+      # DeletionPolicy: Retain
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: "id"
+            AttributeType: "N"
+        TableName: ${self:provider.environment.tableName}
+        KeySchema:
+          - AttributeName: "id"
+            KeyType: "HASH"
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5

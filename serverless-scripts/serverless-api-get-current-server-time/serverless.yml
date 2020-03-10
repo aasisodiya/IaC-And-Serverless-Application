@@ -4,7 +4,7 @@ provider:
   name: aws
   runtime: nodejs10.x
 functions:
-  hello:
+  serverTime:
     handler: handler.serverTime
     events:
       - http:
