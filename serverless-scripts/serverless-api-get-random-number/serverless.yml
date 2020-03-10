@@ -1,0 +1,14 @@
+# Author: Akash Sisodiya
+service: api-get-random-number
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+  hello:
+    handler: handler.randomNumber
+    events:
+      - http:
+          path: randomnumber
+          method: get
