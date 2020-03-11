@@ -1,0 +1,54 @@
+# Author: Akash Sisodiya
+# npm install --save aws-sdk moment underscore uuid
+service: cicd-demo
+provider:
+  name: aws
+  runtime: nodejs10.x
+  profile: default # default profile in credentials file (ex.vscode profile)
+  stage: dev
+  memorySize: 128
+  timeout: 5
+  endpointType: regional #we can also set end optimised
+  environment:
+    NOTES_TABLE: ${self:service}-${opt:stage, self:provider.stage} # opt:stage is provided in command line
+
+functions:
+  hello:
+    handler: handler.logger
+    events:
+      - http:
+          path: message
+          method: get
+
+resources:
+  Resources:
+    MyDynamoDBTable:
+      Type: AWS::DynamoDB::Table
+      # DeletionPolicy: Retain # Don't use it for now
+      Properties:
+        TableName: ${self:provider.environment.NOTES_TABLE}
+        AttributeDefinitions:
+          - AttributeName: user_id
+            AttributeType: S
+          - AttributeName: timestamp
+            AttributeType: N
+          - AttributeName: note_id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: user_id
+            KeyType: HASH
+          - AttributeName: timestamp
+            KeyType: RANGE
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+        GlobalSecondaryIndexes:
+          - IndexName: note_id-index
+            KeySchema:
+              - AttributeName: note_id
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+            ProvisionedThroughput:
+              ReadCapacityUnits: 1
+              WriteCapacityUnits: 1

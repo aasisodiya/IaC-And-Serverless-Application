@@ -1,0 +1,11 @@
+# Author: Akash Sisodiya
+service: lambda-event-scheduler
+provider:
+  name: aws
+  runtime: nodejs10.x
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - schedule: rate(1 minute)
+      # - schedule: rate(10 minutes)
