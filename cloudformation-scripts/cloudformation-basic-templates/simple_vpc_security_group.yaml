@@ -1,0 +1,31 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create Simple VPC Security Group (Needs a VPC) (Creation Time - 30 seconds, Deletion Time - 20 seconds ) (Worked)
+
+Parameters:
+  EnvironmentName:
+    Type: String
+    Description: An environment name that will be prefixed to resource names
+
+Resources:
+  myVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: 10.0.0.0/16
+      EnableDnsSupport: true
+      Tags:
+        - Key: Name
+          Value: !Sub ${EnvironmentName} TemplateCreatedVPC
+
+  mySecutiyGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupName: !Sub ${EnvironmentName} Security Group
+      GroupDescription: Security Group Created for VPC
+      VpcId:
+        Ref: myVPC
+      SecurityGroupEgress: #Outbound Rules - All Traffic, All Protocol, All Port Range and Destination 0.0.0.0/0
+        IpProtocol: -1
+        CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: !Sub ${EnvironmentName} Security Group Tag Name
