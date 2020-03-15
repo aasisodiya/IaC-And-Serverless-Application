@@ -1,0 +1,15 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create a S3 Bucket
+Parameters:
+  TEST:
+    Description: test
+    Type: String
+    Default: dev
+Resources:
+  s3Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      AccessControl: PublicRead
+      BucketName: !Sub
+        - "mybucket${ENV}"
+        - ENV: !Ref TEST
