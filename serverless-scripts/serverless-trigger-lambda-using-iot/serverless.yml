@@ -1,0 +1,21 @@
+# Author: Akash Sisodiya
+service: serverless-iot-triggered-lambda
+provider:
+  name: aws
+  runtime: nodejs12.x
+
+functions:
+  iottriggerlambda:
+    handler: index.handler
+    vpc:
+      securityGroupIds:
+        - sg-blabla
+      subnetIds:
+        - subnet-blabla1
+        - subnet-blabla2
+    runtime: nodejs12.x
+    events:
+      - iot:
+          name: "IOTRule"
+          sql: "SELECT * FROM 'topic/#' where status = 'false'"
+          description: "This rule will select all published topic with status flag as false."
