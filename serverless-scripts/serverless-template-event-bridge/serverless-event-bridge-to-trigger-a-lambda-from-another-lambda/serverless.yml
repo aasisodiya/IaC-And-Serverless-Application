@@ -1,0 +1,24 @@
+service: event-bridge-serverless
+# Reference : https://www.youtube.com/watch?v=VYtBXdf53b4
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+  iamRoleStatements:
+    - Effect: 'Allow'
+      Action:
+        - 'events:PutEvents'
+      Resource: "*"
+
+functions:
+  alice:
+    handler: handler.alice
+    events:
+      - http:
+          path: alice
+          method: GET
+    # cron: # Setup scheduled trigger with cron expression
+    #   active: false
+    #   value: '* 18 * * 1'
+  bob:
+    handler: handler.bob

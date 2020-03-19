@@ -1,0 +1,33 @@
+
+service: event-bridge-cloudformation
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: us-east-1
+
+functions:
+  helloindirect:
+    handler: handler.hello
+
+  hellodirect:
+    handler: handler.hello
+    events:
+      - eventBridge:
+          schedule: rate(10 minutes)
+
+resources:
+ Resources:
+    ScheduledRule: 
+      Type: AWS::Events::Rule
+      Properties: 
+        Description: "ScheduledRule"
+        ScheduleExpression: "rate(2 minutes)"
+        State: "ENABLED"
+        Targets: 
+          - 
+            Arn: 
+              Fn::GetAtt: 
+                - "HelloLambdaFunction"
+                - "Arn"
+            Id: "TargetFunctionV1"

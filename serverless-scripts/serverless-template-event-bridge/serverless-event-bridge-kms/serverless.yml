@@ -1,0 +1,18 @@
+service: event-bridge-example
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+
+functions:
+ kmsNotifier:
+   handler: handler.hello
+   events:
+     - eventBridge:
+         pattern:
+           source:
+             - aws.kms
+           detail-type:
+             - KMS Imported Key Material Expiration
+             - KMS CMK Rotation
+             - KMS CMK Deletion
