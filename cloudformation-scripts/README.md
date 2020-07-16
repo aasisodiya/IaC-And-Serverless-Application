@@ -217,12 +217,22 @@ Usual Flow : cfn-init then cfn-signal then optionally cfn-hup
 - `cfn-get-metadata`: A wrapper script making it easy to retireve either all metadata defined for a resource or path to a specific key or subtree of the resource metadata.
 - `cfn-hup`: A daemon to check for updates to metadata and execute custom hooks when the changes are detected.
 
-Config Block
+## Config Block
 
-Packages Block
+### Packages Block
 
 - Can install from : apt, msi, python, rpm, rubygems, and yum
 - [] means latest version
+
+## Command Block
+
+- You can run commands one at a time and in alphabetical order. You can also set the directory from which that command is run, and as well as environment variables
+- You can also provide a test to control whether the command is executed or not
+
+## Services Block
+
+- It helps Launch a bunch of services at instance launch
+- It ensures services are restarted when files are changed, or package are updated by cfn-init
 
 ## Files
 
@@ -245,10 +255,6 @@ Replace piece of text with its value Ex. In above case ${AWS::StackName} will be
 #OR
 !Sub String
 ```
-
-Command Block
-
-Services Block
 
 ## User Data vs CloudFormation::Init vs Helper Scripts
 
