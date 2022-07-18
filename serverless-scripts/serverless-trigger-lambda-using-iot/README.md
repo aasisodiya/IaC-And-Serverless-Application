@@ -1,5 +1,7 @@
 # IOT Triggered Lambda
 
+![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac.serverless.trigger-lambda-using-iot&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
+
 ## Instructions
 
 Considering the serverless scripts, for triggering a lambda from IOT event all you have to do is add following code to your script
@@ -20,4 +22,6 @@ In Trigger configuration, select AWS IOT (aws devices iot) as trigger. Then in I
 
 ## Reference
 
-* [AWS IoT Rule](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html)
+- [AWS IoT Rule](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html)
+
+![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
