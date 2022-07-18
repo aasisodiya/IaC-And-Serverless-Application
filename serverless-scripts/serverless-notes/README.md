@@ -10,6 +10,8 @@
  -------'
 ```
 
+![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac.serverless&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
+
 ## What is Serverless
 
 The Serverless Framework helps you build serverless apps. For now (as of 1st March 2020) it supports following platform
@@ -30,7 +32,7 @@ The Serverless Framework helps you build serverless apps. For now (as of 1st Mar
 - PHP
 - Ruby
 
-*\*I have worked on*
+> \*I have worked on
 
 ## Getting Started with the Serverless Framework and AWS
 
@@ -111,11 +113,11 @@ aws configure list --profile profile-name
 
 - `serverless deploy --stage stage-name` Used for stage specific deployments
 
-- `servelress remove` It will remove the deployment **(Only removes dev stage)**
+- `serverless remove` It will remove the deployment **(Only removes dev stage)**
 
-- `servelress remove --stage stage-name` It will remove the deployment for stage stage-name
+- `serverless remove --stage stage-name` It will remove the deployment for stage stage-name
 
-- `servelress --help` Provides help
+- `serverless --help` Provides help
 
 - `serverless invoke --function function_name` Command to invoke the function function_name
 
@@ -245,3 +247,5 @@ custom:
 - [LearnCode.academy](https://www.youtube.com/watch?v=71cd5XerKss)
 - [SimplyExplained - Savjee](https://www.youtube.com/watch?v=lUTGk64jppM&list=PLzvRQMJ9HDiT5b4OsmIBiMbsPjfp4kfg3)
 - [Serverless AWS - Credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
+
+![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)

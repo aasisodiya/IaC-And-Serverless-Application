@@ -1,24 +1,26 @@
-# **Terraform**
+# Terraform
+
+![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac.terraform&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
 
 _Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently._
 
 ## The key features of Terraform
 
-- ### Infrastructure as Code
+### Infrastructure as Code
 
-  Infrastructure is described using a high-level configuration syntax. This allows a blueprint of your datacenter to be versioned and treated as you would any other code. Additionally, infrastructure can be shared and re-used.
+Infrastructure is described using a high-level configuration syntax. This allows a blueprint of your data-center to be versioned and treated as you would any other code. Additionally, infrastructure can be shared and re-used.
 
-- ### Execution Plans
+### Execution Plans
 
-  Terraform has a "planning" step where it generates an execution plan. The execution plan shows what Terraform will do when you call apply. This lets you avoid any surprises when Terraform manipulates infrastructure.
+Terraform has a "planning" step where it generates an execution plan. The execution plan shows what Terraform will do when you call apply. This lets you avoid any surprises when Terraform manipulates infrastructure.
 
-- ### Resource Graph
+### Resource Graph
 
-  Terraform builds a graph of all your resources and parallelizes the creation and modification of any non-dependent resources. Because of this, Terraform builds infrastructure as efficiently as possible, and operators get insight into dependencies in their infrastructure.
+Terraform builds a graph of all your resources and parallelizes the creation and modification of any non-dependent resources. Because of this, Terraform builds infrastructure as efficiently as possible, and operators get insight into dependencies in their infrastructure.
 
-- ### Change Automation
+### Change Automation
 
-  Complex changesets can be applied to your infrastructure with minimal human interaction. With the previously mentioned execution plan and resource graph, you know exactly what Terraform will change and in what order, avoiding many possible human errors.
+Complex change-sets can be applied to your infrastructure with minimal human interaction. With the previously mentioned execution plan and resource graph, you know exactly what Terraform will change and in what order, avoiding many possible human errors.
 
 Below command gives you version of Terraform installed
 
@@ -26,7 +28,7 @@ Below command gives you version of Terraform installed
 terraform --version
 ```
 
-The set of files used to describe infrastructure in Terraform is simply known as a ***Terraform configuration***.
+The set of files used to describe infrastructure in Terraform is simply known as a **_Terraform configuration_**.
 
 Sample Configuration to launch a single AWS EC2 instance:
 
@@ -176,37 +178,37 @@ This uses more interpolations, this time prefixed with `var.` tells Terraform th
 
 There are multiple ways to assign variables. Below is also the order in which variable values are chosen. The following is the descending order of precedence in which variables are considered.
 
-- ### Command-line flags
+### Command-line flags
 
-  You can set variables directly on the command-line with the `-var` flag. Any command in Terraform that inspects the configuration accepts this flag, such as apply, plan, and refresh:
+You can set variables directly on the command-line with the `-var` flag. Any command in Terraform that inspects the configuration accepts this flag, such as apply, plan, and refresh:
 
-  ```powershell
-  $ terraform apply \
-  -var 'region=us-east-2'
-  # ...
-  ```
+```powershell
+$ terraform apply \
+-var 'region=us-east-2'
+# ...
+```
 
-  Once again, setting variables this way will not save them, and they'll have to be input repeatedly as commands are executed.
+Once again, setting variables this way will not save them, and they'll have to be input repeatedly as commands are executed.
 
-- ### From a file
+### From a file
 
-  To persist variable values, create a file and assign variables within this file. Create a file named `terraform.tfvars` with the following contents:
+To persist variable values, create a file and assign variables within this file. Create a file named `terraform.tfvars` with the following contents:
 
-  ```terraform
-  region ="us-east-2"
-  ```
+```terraform
+region ="us-east-2"
+```
 
-  For all files which match `terraform.tfvars` or `*.auto.tfvars` present in the current directory, Terraform automatically loads them to populate variables. If the file is named something else, you can use the **-var-file** flag directly to specify a file. These files are the same syntax as Terraform configuration files. And like Terraform configuration files, these files can also be JSON. You can use multiple `-var-file` arguments in a single command, with some checked in to version control and others not checked in. For example:
+For all files which match `terraform.tfvars` or `*.auto.tfvars` present in the current directory, Terraform automatically loads them to populate variables. If the file is named something else, you can use the **-var-file** flag directly to specify a file. These files are the same syntax as Terraform configuration files. And like Terraform configuration files, these files can also be JSON. You can use multiple `-var-file` arguments in a single command, with some checked in to version control and others not checked in. For example:
 
-  ```terraform
-  $ terraform apply \
-    -var-file="secret.tfvars" \
-    -var-file="production.tfvars"
-  ```
+```terraform
+$ terraform apply \
+  -var-file="secret.tfvars" \
+  -var-file="production.tfvars"
+```
 
-- ### From environment variables
+### From environment variables
 
-  Terraform will read environment variables in the form of `TF_VAR_name` to find the value for a variable. For example, the `TF_VAR_region` variable can be set to set the region variable.
+Terraform will read environment variables in the form of `TF_VAR_name` to find the value for a variable. For example, the `TF_VAR_region` variable can be set to set the region variable.
 
 > **Basics of Terraform :** Youtube Playlist [Terraform Playlist](https://www.youtube.com/playlist?list=PLQP5dDPLts65J8csDjrGiLH5MZgTyTsDB)
 > **Difference between Terraform and Cloudformation:** [AWS Cloudformation vs Terraform: Prepare for DevOps/ Cloud Engineer Interview](https://www.youtube.com/watch?v=uFaMUS6Z9fI)
@@ -222,7 +224,7 @@ There are multiple ways to assign variables. Below is also the order in which va
 
 ## Steps to Start Terraform
 
-**Create an EC2 instance** and login and run below commands
+### Create an EC2 instance and login and run below commands
 
 1. `wget https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip`
 2. `unzip terraform_0.12.6_linux_amd64.zip`
@@ -234,22 +236,24 @@ There are multiple ways to assign variables. Below is also the order in which va
 3. `pwd` - get the path
 4. `export PATH=$PATH:/home/ec2-user` - set the path
 
-**Grant Access** to your ec2 instance
+### Grant Access to your ec2 instance
 
 1. Create user
 2. Set Programmatic access
 3. Save the secret key and accesskey
 
-**Perform Required Terraform Operations**
+### Perform Required Terraform Operations
 
 1. terraform init
 2. terraform plan
 <!-- 3. create a file with below code -->
 
-*Files must either end in .tf or .tf.json*
+> Files must either end in .tf or .tf.json
 
 ## Interpolation
 
 1. Variable Interpolation
 2. Data source Interpolation
 3. Resource Interpolation
+
+![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)

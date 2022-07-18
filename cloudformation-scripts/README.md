@@ -1,5 +1,7 @@
 # Cloudformation
 
+![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac.cloudformation&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
+
 ## Benefits of AWS CloudFormation
 
 - Infrastructure as Code
@@ -8,9 +10,9 @@
 
 ## CloudFormation Vs Others
 
-- AWS Native, always contains latest fatures
-- State Based (Ansible and Terraform - Instrucation Based)
-- Ansible and Terraform needs to be updated everytime a new service/api options comes from AWS
+- AWS Native, always contains latest features
+- State Based (Ansible and Terraform - Instruction Based)
+- Ansible and Terraform needs to be updated every time a new service/api options comes from AWS
 
 ## Updates in CloudFormation
 
@@ -22,7 +24,7 @@
 - You can't edit CloudFormation template, you will have to upload it again
 - Stack Name can't be changed and should be unique to region
 - Parameter `NOEcho` is set to `true` for secret value parameter
-- Resource Type Indentifiers `AWS::aws-product-name::data-type-name`
+- Resource Type Identifiers `AWS::aws-product-name::data-type-name`
 - Typed Parameter `AWS::EC2::KeyPair::KeyName` helps us to populate value from AWS side
 - To refer a parameter we use : `Fn::Ref ParameterName` or `!Ref ParameterName`
 - For CommaSeparatedList we use : `!Select [0, !Ref ParameterName]` where 0 is index
@@ -77,7 +79,7 @@ Fn::FindInMap: [ RegionMap, !Ref "AWS::Region", 32]
 
 - Optional
 - Something that you can view it in AWS Console or AWS CLI
-- Used when you are required to communicate some data (possibly between templtes i.e Cross Stack Reference)
+- Used when you are required to communicate some data (possibly between templates i.e Cross Stack Reference)
 
 ## Cross Stack Reference
 
@@ -214,7 +216,7 @@ Usual Flow : cfn-init then cfn-signal then optionally cfn-hup
 
 - `cfn-init`: Used to retrieve and interpret the resource metadata, installing packages, creating files and starting services.
 - `cfn-signal`: A simple wrapper to signal an AWS CloudFormation CreationPolicy or WaitCondition, enabling you to synchronize other resources in the stack with the application being ready
-- `cfn-get-metadata`: A wrapper script making it easy to retireve either all metadata defined for a resource or path to a specific key or subtree of the resource metadata.
+- `cfn-get-metadata`: A wrapper script making it easy to retrieve either all metadata defined for a resource or path to a specific key or subtree of the resource metadata.
 - `cfn-hup`: A daemon to check for updates to metadata and execute custom hooks when the changes are detected.
 
 ## Config Block
@@ -317,7 +319,7 @@ Resources:
 
 - **Issue:** Unable to delete RDS Instance created using cloudfront (The option group cannot be deleted because it is in use.)
 
-  **Solution:** Delete all dependency of option group first, which in this case was the snapshots, but sometimes it still doesn't work then you will have to wait for a while before deleteing. Reefrence to AWS feedback : RDS service might take some "system snapshot" that aren't visible to the customer. It seems that these internal RDS snapshots were preventing deletion of the option group as it might take some time to release the association from the option groups after deleting the RDS instance and all the snapshots (at least for those visible to the user).
+  **Solution:** Delete all dependency of option group first, which in this case was the snapshots, but sometimes it still doesn't work then you will have to wait for a while before deleting. Reference to AWS feedback : RDS service might take some "system snapshot" that aren't visible to the customer. It seems that these internal RDS snapshots were preventing deletion of the option group as it might take some time to release the association from the option groups after deleting the RDS instance and all the snapshots (at least for those visible to the user).
 
 - **Issue:** Unable to delete Option Group
 
@@ -327,3 +329,5 @@ Resources:
 
 - [How to restore AWS RDS SQL Server database from S3 bucket using SSMS](https://medium.com/developer-diary/how-to-restore-sql-server-database-from-aws-s3-bucket-using-ssms-1201d31ab93e)
 - [Youtube - AWS RDS SQL Server Database Restore using S3](https://www.youtube.com/watch?v=aj76RPamXeE)
+
+![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
