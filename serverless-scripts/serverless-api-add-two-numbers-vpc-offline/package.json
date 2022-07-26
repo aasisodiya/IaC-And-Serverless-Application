@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "serverless-offline": "^5.11.0"
+    "serverless-offline": "latest"
   }
 }
