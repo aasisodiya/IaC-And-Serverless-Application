@@ -98,29 +98,39 @@ Fn::FindInMap: [ RegionMap, !Ref "AWS::Region", 32]
     `!Equals [ !Ref KeyNameValueToCompare, ComparedValue ]`
     ```
 
-  - ```yaml
+  - Example of using `!If`
+
+    ```yaml
     SecurityGroups:
     - !If [CreateNewSecurityGroup, !Ref NewSecurityGroup, !Ref ExistingSecurityGroup]
     ```
 
-  - ```yaml
+  - Example of using `!Equals`
+
+    ```yaml
     MyAndCondition: !And
     - !Equals ["sg-mysggroup", !Ref ASecurityGroup]
     - !Condition SomeOtherCondition
     ```
 
-  - ```yaml
+  - Example of using `!If`
+
+    ```yaml
     !If [condition_name, value_if_true, value_if_false]
     ```
 
-  - ```yaml
+  - Example of using `!If`
+
+    ```yaml
     Outputs:
       SecurityGroupId: 
           Description: Group ID of the security group used.
           Value: !If [CreateNewSecurityGroup, !Ref NewSecurityGroup, !Ref ExistingSecurityGroup]
     ```
 
-  - ```yaml
+  - Example of using `!If`
+
+    ```yaml
     DBSnapshotIdentifier:
       !If [UseDBSnapshot, !Ref DBSnapshotName, !Ref "AWS::NoValue"]
     ```
