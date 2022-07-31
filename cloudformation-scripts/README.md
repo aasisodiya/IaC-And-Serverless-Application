@@ -102,15 +102,19 @@ Fn::FindInMap: [ RegionMap, !Ref "AWS::Region", 32]
 
     ```yaml
     SecurityGroups:
-    - !If [CreateNewSecurityGroup, !Ref NewSecurityGroup, !Ref ExistingSecurityGroup]
+      - !If [
+          CreateNewSecurityGroup,
+          !Ref NewSecurityGroup,
+          !Ref ExistingSecurityGroup,
+        ]
     ```
 
   - Example of using `!Equals`
 
     ```yaml
     MyAndCondition: !And
-    - !Equals ["sg-mysggroup", !Ref ASecurityGroup]
-    - !Condition SomeOtherCondition
+      - !Equals ["sg-mysggroup", !Ref ASecurityGroup]
+      - !Condition SomeOtherCondition
     ```
 
   - Example of using `!If`
@@ -123,9 +127,14 @@ Fn::FindInMap: [ RegionMap, !Ref "AWS::Region", 32]
 
     ```yaml
     Outputs:
-      SecurityGroupId: 
-          Description: Group ID of the security group used.
-          Value: !If [CreateNewSecurityGroup, !Ref NewSecurityGroup, !Ref ExistingSecurityGroup]
+      SecurityGroupId:
+        Description: Group ID of the security group used.
+        Value:
+          !If [
+            CreateNewSecurityGroup,
+            !Ref NewSecurityGroup,
+            !Ref ExistingSecurityGroup,
+          ]
     ```
 
   - Example of using `!If`
@@ -139,24 +148,24 @@ Fn::FindInMap: [ RegionMap, !Ref "AWS::Region", 32]
 
     ```yaml
     UpdatePolicy:
-      AutoScalingRollingUpdate:
-        !If 
-          - RollingUpdates
-          -
-            MaxBatchSize: 2
-            MinInstancesInService: 2
-            PauseTime: PT0M30S
-          - !Ref "AWS::NoValue"
+      AutoScalingRollingUpdate: !If
+        - RollingUpdates
+        - MaxBatchSize: 2
+          MinInstancesInService: 2
+          PauseTime: PT0M30S
+        - !Ref "AWS::NoValue"
     ```
 
   - ```yaml
-    MyNotCondition:
-      !Not [!Equals [!Ref EnvironmentType, prod]]
+    MyNotCondition: !Not [!Equals [!Ref EnvironmentType, prod]]
     ```
 
   - ```yaml
     MyOrCondition:
-      !Or [!Equals [sg-mysggroup, !Ref ASecurityGroup], Condition: SomeOtherCondition]
+      !Or [
+        !Equals [sg-mysggroup, !Ref ASecurityGroup],
+        Condition: SomeOtherCondition,
+      ]
     ```
 
   - ```yaml
@@ -179,24 +188,22 @@ Use `!GetAtt` or `Fn::GetAtt:`
 `AWS::CloudFormation::Interface` - Defining Grouping and ordering. It is used when users must input template parameters manually. Ex. Group All EC2 related parameters together
 
 ```yaml
-Metadata: 
-  AWS::CloudFormation::Interface: 
-    ParameterGroups: 
-      - 
-        Label: 
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label:
           default: "Network Configuration"
-        Parameters: 
+        Parameters:
           - VPCID
           - SubnetId
           - SecurityGroupID
-      - 
-        Label: 
+      - Label:
           default: "Amazon EC2 Configuration"
-        Parameters: 
+        Parameters:
           - InstanceType
           - KeyName
-    ParameterLabels: 
-      VPCID: 
+    ParameterLabels:
+      VPCID:
         default: "Which VPC should this be deployed to?"
 ```
 
@@ -204,8 +211,9 @@ Metadata:
 
 ```yaml
 UserData:
-    Fn::Base64: |
-        script
+  Fn::Base64: |
+    script
+
 # | pipe here helps for multiline string
 ```
 
@@ -250,10 +258,10 @@ Usual Flow : cfn-init then cfn-signal then optionally cfn-hup
 
 ```yaml
 files:
-    /tmp/temp.txt:
-        content: !Sub |
-            My stack name
-            is ${AWS::StackName}
+  /tmp/temp.txt:
+    content: !Sub |
+      My stack name
+      is ${AWS::StackName}
 ```
 
 ## Substitution Functions
@@ -292,14 +300,14 @@ In summary, what's the difference between EC2 User Data, CloudFormation::Init, a
 
 ```yaml
 Resources:
-    CloudFormationStack:
-        Type: AWS::CloudFormation::Stack
-        Properties:
-            TemplateURL: template-TemplateURL
-            Parameters:
-                ApplicationName: !Ref AWS::StackName
-                VPCId: !Ref VPCId
-            TimeoutInMinutes: 60
+  CloudFormationStack:
+    Type: AWS::CloudFormation::Stack
+    Properties:
+      TemplateURL: template-TemplateURL
+      Parameters:
+        ApplicationName: !Ref AWS::StackName
+        VPCId: !Ref VPCId
+      TimeoutInMinutes: 60
 ```
 
 ## Exporting Stack Output Values Vs. Using Nested Stacks
@@ -315,15 +323,15 @@ Resources:
 - Value : Delete, Retain, Snapshot
 
 ```yaml
-    DeletionPolicy: Retain
+DeletionPolicy: Retain
 ```
 
 ## Useful Tools
 
-|Tools|Details|
-|-|-|
-|Troposphere|Leverage Python to write CF templates|
-|Former2.com|Create CF Template |
+| Tools       | Details                               |
+| ----------- | ------------------------------------- |
+| Troposphere | Leverage Python to write CF templates |
+| Former2.com | Create CF Template                    |
 
 ## Troubleshooting
 
@@ -340,4 +348,4 @@ Resources:
 - [How to restore AWS RDS SQL Server database from S3 bucket using SSMS](https://medium.com/developer-diary/how-to-restore-sql-server-database-from-aws-s3-bucket-using-ssms-1201d31ab93e)
 - [Youtube - AWS RDS SQL Server Database Restore using S3](https://www.youtube.com/watch?v=aj76RPamXeE)
 
-![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&label=aasisodiya/iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)](https://visitorbadge.io/status?path=aasisodiya.iac)

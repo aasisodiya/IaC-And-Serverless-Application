@@ -210,17 +210,16 @@ $ terraform apply \
 
 Terraform will read environment variables in the form of `TF_VAR_name` to find the value for a variable. For example, the `TF_VAR_region` variable can be set to set the region variable.
 
-> **Basics of Terraform :** Youtube Playlist [Terraform Playlist](https://www.youtube.com/playlist?list=PLQP5dDPLts65J8csDjrGiLH5MZgTyTsDB)
-> **Difference between Terraform and Cloudformation:** [AWS Cloudformation vs Terraform: Prepare for DevOps/ Cloud Engineer Interview](https://www.youtube.com/watch?v=uFaMUS6Z9fI)
+> **Basics of Terraform :** Youtube Playlist [Terraform Playlist](https://www.youtube.com/playlist?list=PLQP5dDPLts65J8csDjrGiLH5MZgTyTsDB) > **Difference between Terraform and Cloudformation:** [AWS Cloudformation vs Terraform: Prepare for DevOps/ Cloud Engineer Interview](https://www.youtube.com/watch?v=uFaMUS6Z9fI)
 
-|Command                                  |Description                                |
-|-----------------------------------------|-------------------------------------------|
-|`terraform init`                         |Safe to run multiple time                  |
-|`terraform plan`                         |Gives complete plan to visualize           |
-|`terraform apply`                        |Actually deploy the resources              |
-|`terraform graph`                        |Helps to visualize                         |
-|`apt install graphviz`                   |Install [graphviz](http://www.graphviz.org)|
-|`terraform graph | dot -Tpng > graph.png`|Generate Graph Image                       |
+| Command                | Description                                 |
+| ---------------------- | ------------------------------------------- | -------------------- |
+| `terraform init`       | Safe to run multiple time                   |
+| `terraform plan`       | Gives complete plan to visualize            |
+| `terraform apply`      | Actually deploy the resources               |
+| `terraform graph`      | Helps to visualize                          |
+| `apt install graphviz` | Install [graphviz](http://www.graphviz.org) |
+| `terraform graph       | dot -Tpng > graph.png`                      | Generate Graph Image |
 
 ## Steps to Start Terraform
 
@@ -229,9 +228,9 @@ Terraform will read environment variables in the form of `TF_VAR_name` to find t
 1. `wget https://releases.hashicorp.com/terraform/0.12.6/terraform_0.12.6_linux_amd64.zip`
 2. `unzip terraform_0.12.6_linux_amd64.zip`
 
-    ```powershell
-    apt install unzip
-    ```
+   ```powershell
+   apt install unzip
+   ```
 
 3. `pwd` - get the path
 4. `export PATH=$PATH:/home/ec2-user` - set the path
@@ -256,4 +255,4 @@ Terraform will read environment variables in the form of `TF_VAR_name` to find t
 2. Data source Interpolation
 3. Resource Interpolation
 
-![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&label=aasisodiya/iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)](https://visitorbadge.io/status?path=aasisodiya.iac)
