@@ -212,14 +212,14 @@ Terraform will read environment variables in the form of `TF_VAR_name` to find t
 
 > **Basics of Terraform :** Youtube Playlist [Terraform Playlist](https://www.youtube.com/playlist?list=PLQP5dDPLts65J8csDjrGiLH5MZgTyTsDB) > **Difference between Terraform and Cloudformation:** [AWS Cloudformation vs Terraform: Prepare for DevOps/ Cloud Engineer Interview](https://www.youtube.com/watch?v=uFaMUS6Z9fI)
 
-| Command                | Description                                 |
-| ---------------------- | ------------------------------------------- | -------------------- |
-| `terraform init`       | Safe to run multiple time                   |
-| `terraform plan`       | Gives complete plan to visualize            |
-| `terraform apply`      | Actually deploy the resources               |
-| `terraform graph`      | Helps to visualize                          |
-| `apt install graphviz` | Install [graphviz](http://www.graphviz.org) |
-| `terraform graph       | dot -Tpng > graph.png`                      | Generate Graph Image |
+|Command                                  |Description                                |
+|-----------------------------------------|-------------------------------------------|
+|`terraform init`                         |Safe to run multiple time                  |
+|`terraform plan`                         |Gives complete plan to visualize           |
+|`terraform apply`                        |Actually deploy the resources              |
+|`terraform graph`                        |Helps to visualize                         |
+|`apt install graphviz`                   |Install [graphviz](http://www.graphviz.org)|
+|`terraform graph | dot -Tpng > graph.png`|Generate Graph Image                       |
 
 ## Steps to Start Terraform
 
