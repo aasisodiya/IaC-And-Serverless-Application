@@ -16,7 +16,7 @@
 
 The Serverless Framework helps you build serverless apps. For now (as of 1st March 2020) it supports following platform
 
-- AWS*
+- AWS\*
 - Google Cloud
 - Azure
 - OpenWhisk
@@ -24,9 +24,9 @@ The Serverless Framework helps you build serverless apps. For now (as of 1st Mar
 
 & following Languages
 
-- nodeJS*
-- Python*
-- Go*
+- nodeJS\*
+- Python\*
+- Go\*
 - Swift
 - Java
 - PHP
@@ -129,7 +129,7 @@ aws configure list --profile profile-name
 
 **Short CMD:** sls (Instead of Serverless)
 
-> *Note: sls will conflict with sls alias command of powershell so in order to remove the conflict delete that alias : "Remove-Item alias:sls" but this will only disable the powershell alias for current/running session. For permanent change you will have to edit Microsoft.PowerShell_profile.ps1*
+> _Note: sls will conflict with sls alias command of powershell so in order to remove the conflict delete that alias : "Remove-Item alias:sls" but this will only disable the powershell alias for current/running session. For permanent change you will have to edit Microsoft.PowerShell_profile.ps1_
 
 ## Serverless 5 Main Concepts
 
@@ -147,10 +147,10 @@ aws configure list --profile profile-name
 ### Function Execution
 
 1. Cloud Execution
-Use: `serverless invoke --function function_name`
+   Use: `serverless invoke --function function_name`
 2. Local Execution
-Use: `serverless invoke local --function function_name`
-You cannot execute your functions locally always, ex. For SES and S3 you might fail and have to provide mock objects
+   Use: `serverless invoke local --function function_name`
+   You cannot execute your functions locally always, ex. For SES and S3 you might fail and have to provide mock objects
 
 ### Events
 
@@ -178,9 +178,9 @@ Lambda Functions are triggered by events (Ex. APIGW Events, S3 Events, SQS, etc)
 
 ## Some Other Points
 
- 1. Create Package.json : npm init -y
- 2. Install AWS SDK and other libraries : npm install --save aws-sdk moment underscore uuid
- 3. Example To Fetch Variable inside Lambda Code Ex. `const tableName = process.env.tableName`
+1.  Create Package.json : npm init -y
+2.  Install AWS SDK and other libraries : npm install --save aws-sdk moment underscore uuid
+3.  Example To Fetch Variable inside Lambda Code Ex. `const tableName = process.env.tableName`
 
 ## Managing AWS Credentials
 
@@ -248,4 +248,4 @@ custom:
 - [SimplyExplained - Savjee](https://www.youtube.com/watch?v=lUTGk64jppM&list=PLzvRQMJ9HDiT5b4OsmIBiMbsPjfp4kfg3)
 - [Serverless AWS - Credentials](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
 
-![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&label=aasisodiya/iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)](https://visitorbadge.io/status?path=aasisodiya.iac)

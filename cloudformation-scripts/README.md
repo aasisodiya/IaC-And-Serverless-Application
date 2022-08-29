@@ -340,4 +340,4 @@ Resources:
 - [How to restore AWS RDS SQL Server database from S3 bucket using SSMS](https://medium.com/developer-diary/how-to-restore-sql-server-database-from-aws-s3-bucket-using-ssms-1201d31ab93e)
 - [Youtube - AWS RDS SQL Server Database Restore using S3](https://www.youtube.com/watch?v=aj76RPamXeE)
 
-![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&label=aasisodiya/iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)](https://visitorbadge.io/status?path=aasisodiya.iac)

@@ -7,11 +7,11 @@
 Considering the serverless scripts, for triggering a lambda from IOT event all you have to do is add following code to your script
 
 ```yml
-    events:
-      - iot:
-          name: "IOTRule"
-          sql: "SELECT * FROM 'testtopic/#' where status = 'false'"
-          description: "This rule will select all published topic with status flag as false."
+events:
+  - iot:
+      name: "IOTRule"
+      sql: "SELECT * FROM 'testtopic/#' where status = 'false'"
+      description: "This rule will select all published topic with status flag as false."
 ```
 
 What the above script does is, It will trigger your lambda if any message published to IOT with topic as `testtopic/`. Now event that your lambda receives is what you send as message
@@ -24,4 +24,4 @@ In Trigger configuration, select AWS IOT (aws devices iot) as trigger. Then in I
 
 - [AWS IoT Rule](https://docs.aws.amazon.com/iot/latest/developerguide/iot-sql-reference.html)
 
-![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&label=aasisodiya/iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)](https://visitorbadge.io/status?path=aasisodiya.iac)
