@@ -178,9 +178,9 @@ Lambda Functions are triggered by events (Ex. APIGW Events, S3 Events, SQS, etc)
 
 ## Some Other Points
 
-1.  Create Package.json : npm init -y
-2.  Install AWS SDK and other libraries : npm install --save aws-sdk moment underscore uuid
-3.  Example To Fetch Variable inside Lambda Code Ex. `const tableName = process.env.tableName`
+1. Create Package.json : npm init -y
+2. Install AWS SDK and other libraries : npm install --save aws-sdk moment underscore uuid
+3. Example To Fetch Variable inside Lambda Code Ex. `const tableName = process.env.tableName`
 
 ## Managing AWS Credentials
 
