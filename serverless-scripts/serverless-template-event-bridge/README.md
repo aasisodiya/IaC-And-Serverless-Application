@@ -7,6 +7,6 @@
 ## Reference
 
 - [EventBridge Use Cases and Examples](https://serverless.com/blog/eventbridge-use-cases-and-tutorial/)
-- [Simple example using Amazon EventBridge | Serverless](https://www.youtube.com/watch?v=VYtBXdf53b4)
+- [Simple example using Amazon EventBridge \| Serverless](https://www.youtube.com/watch?v=VYtBXdf53b4)
 
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=aasisodiya.iac&label=aasisodiya/iac&labelColor=%23ffa500&countColor=%23263759&labelStyle=upper)](https://visitorbadge.io/status?path=aasisodiya.iac)
