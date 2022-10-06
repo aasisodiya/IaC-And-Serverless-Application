@@ -104,32 +104,33 @@ aws configure list --profile profile-name
 ## Command Descriptions
 
 - `serverless` Helps create some app template on serverless website
-
 - `serverless create -t aws-nodejs` Create a new Serverless Service with template for aws-nodejs (Creates handler.js and serverless.yml file)
-
 - `serverless config credentials --provider aws --key AKIASAKASHSINGH --secret ITSD@NGER0U$T0$#@RE` Used to set AWS credentials for serverless
-
 - `serverless deploy` Will deploy your template to your platform
-
 - `serverless deploy --stage stage-name` Used for stage specific deployments
-
+- `serverless deploy --stage stage-name -f fname` will only deploy function `fname`
 - `serverless remove` It will remove the deployment **(Only removes dev stage)**
-
-- `serverless remove --stage stage-name` It will remove the deployment for stage stage-name
-
+- `serverless remove --stage stage-name` It will remove the deployment for stage `stage-name`
 - `serverless --help` Provides help
-
 - `serverless invoke --function function_name` Command to invoke the function function_name
-
 - `serverless invoke -f function_name` Command to invoke the function function_name
-
 - `serverless invoke local --function function_name` Use this command for Local Execution
+- `serverless invoke local --function function_name -d '{\"key\":\"value\"}'` Use this command for Local Execution and make sure to use escape character
+- `serverless logs -f function_name -t` Command to load logs for function `function_name` & Optionally tail the logs with `-t` or `--tail`
+- `serverless logs -f fname -s prod --startTime 5m` will show you last 5 minutes logs
+- Use <kbd>CTRL</kbd> + <kbd>c</kbd> to terminate the logs tail
+- `serverless offline` command to run API local
 
-- `serverless logs -f function_name -t` Command to load logs for function function_name & Optionally tail the logs with -t
+**Short CMD:** `sls` (Instead of Serverless)
 
-**Short CMD:** sls (Instead of Serverless)
+> _Note: `sls` will conflict with `sls` alias command of powershell so in order to remove the conflict delete that alias : `Remove-Item alias:sls` but this will only disable the powershell alias for current/running session. For permanent change you will have to edit `Microsoft.PowerShell_profile.ps1` file_
 
-> _Note: sls will conflict with sls alias command of powershell so in order to remove the conflict delete that alias : "Remove-Item alias:sls" but this will only disable the powershell alias for current/running session. For permanent change you will have to edit Microsoft.PowerShell_profile.ps1_
+## Serverless Supports
+
+- AWS Lambda
+- Azure Function
+- Google Cloud Functions
+- IBM OpenWhisk
 
 ## Serverless 5 Main Concepts
 
@@ -146,10 +147,10 @@ aws configure list --profile profile-name
 
 ### Function Execution
 
-1. Cloud Execution
+1. Cloud Execution  
    Use: `serverless invoke --function function_name`
-2. Local Execution
-   Use: `serverless invoke local --function function_name`
+2. Local Execution  
+   Use: `serverless invoke local --function function_name`  
    You cannot execute your functions locally always, ex. For SES and S3 you might fail and have to provide mock objects
 
 ### Events
@@ -181,6 +182,7 @@ Lambda Functions are triggered by events (Ex. APIGW Events, S3 Events, SQS, etc)
 1. Create Package.json : npm init -y
 2. Install AWS SDK and other libraries : npm install --save aws-sdk moment underscore uuid
 3. Example To Fetch Variable inside Lambda Code Ex. `const tableName = process.env.tableName`
+4. This command `npm install --save=dev serverless-offline` will install serverless-offline, only for dev environment
 
 ## Managing AWS Credentials
 
