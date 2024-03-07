@@ -8,5 +8,10 @@ functions:
     handler: handler.hello
     events:
       - s3: some-randomly-created-bucket-which-doesnt-need-to-exists
-
+resources:
+  Resources:
+    NewResource:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: some-randomly-created-bucket-which-doesnt-need-to-exists
 # Refer for more options: https://serverless.com/framework/docs/providers/aws/events/s3/

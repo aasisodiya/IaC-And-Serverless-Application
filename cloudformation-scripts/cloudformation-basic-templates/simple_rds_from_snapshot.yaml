@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Restore RDS from S3 Snapshot (Restricted to Amazon Aurora and MySQL) (Incomplete)
+
+Parameters:
+  EnvironmentName:
+    Description: An environment name that will be used with resource names
+    Type: String
+    Default: Test
+
+Resources:

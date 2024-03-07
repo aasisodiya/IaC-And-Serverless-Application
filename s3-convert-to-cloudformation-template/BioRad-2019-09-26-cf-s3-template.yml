@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create a cloud formation template from provided terraform template
+Parameters:
+  REGION:
+    Description: AWS Region for deployment
+    Type: String
+    Default: us-west-2
+    AllowedValues:
+      - us-east-1
+      - us-west-1
+      - us-west-2
+      - eu-west-1
+      - eu-central-1
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-northeast-1
+      - sa-east-1
+    ConstraintDescription: Must be a valid aws region.
+  PROFILE:
+    Description: profile
+    Type: String
+    Default: qsd-unity-devops-cicd
+  STATEBUCKET:
+    Description: statebucket
+    Type: String
+    Default: unity-next-d-terraform-remote-state-bucket
+Resources:
+  stateBucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+    Properties:
+      AccessControl: Private
+      BucketName:
+        Ref: STATEBUCKET
+      VersioningConfiguration:
+        Status: Enabled
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
